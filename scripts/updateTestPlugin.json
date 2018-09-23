@@ -1,0 +1,20 @@
+{
+     "name": "testPlugin",
+     "config": {
+        "type": "file",
+        "enabled": "true",
+        "connection": "maprfs:///",
+        "workspaces": {
+           "drillTestDirP1": {
+              "location": "/drill/testdata/p1tests",
+              "writable": "true",
+              "defaultInputFormat": "parquet"
+           },
+           "testSchema": {
+              "location": "/drill/testdata",
+              "writable": "true",
+              "defaultInputFormat": "json"
+           }
+        }
+     }
+}

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="functional">
+  <test name="TestDrillRestAPI">
+    <parameter name="unsecure_server.port" value="8047"/>
+    <parameter name="unsecure_server.host" value="http://host_name"/>
+    <parameter name="drillVersion" value="1.15.0-mapr-SNAPSHOT"/>
+    <parameter name="logDir" value="/tmp/TestDrillRestAPI"/> 
+    <parameter name="addNewPluginFile" value="/root/drill-restAPI-tests/scripts/addNewPlugin.json"/>
+    <parameter name="queryTestPluginFile" value="/root/drill-restAPI-tests/scripts/queryTestPlugin.json"/>
+    <parameter name="updateTestPluginFile" value="/root/drill-restAPI-tests/scripts/updateTestPlugin.json"/>
+    <parameter name="query1" value="select count(*) as total_cnt from testPlugin.drillTestDirP1.voter"/>
+    <parameter name="checkRunnningQueryProfileScript" value="/root/drill-restAPI-tests/scripts/checkRunnningQueryProfile.sh"/>
+    <parameter name="query2" value="select count (distinct ss_customer_sk),count(distinct ss_item_sk),count(distinct ss_store_sk),max(ss_ticket_number),sum(ss_item_sk),max(ss_net_profit"/>
+    <parameter name="cancelRunningQueryFile" value="/root/drill-restAPI-tests/scripts/cancelRunningQuery.sh"/>
+    <parameter name="query3" value="select max(ss_sold_date_sk),min(ss_sold_time_sk),count(distinct ss_store_sk) from dfs.tpcds_sf100_parquet.store_sales"/>
+    <classes>
+       <class name="org.apache.drill.restAPI.test.TestDrillRestAPI"/>
+    </classes>
+  </test>
+</suite>

@@ -1,0 +1,4 @@
+{
+   "queryType": "SQL",
+   "query": "select count(*) as total_cnt from `testPlugin.drillTestDirP1`.voter"
+}
